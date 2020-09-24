@@ -20,74 +20,53 @@ const char index_html[] PROGMEM = R"rawliteral(
   <title>Robot control Web Server</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  html {
+ html {
     font-family: Trebuchet MS;
     display: inline-block;
     margin: 0px auto;
     text-align: center;
   }
-  h1 {
+ h1 {
     color: #0F3376;
     padding: 2vh;
   }
-  p {
+ p {
     font-size: 1.5rem;
   }
-  .button {
-    display: inline-block;
-    background-color: #008CBA;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    padding: 16px 40px;
-    text-decoration: none;
-    font-size: 30px;
-    margin: 2px;
-    cursor: pointer;
-  }
-  .button3 {
-    background-color: #f44336;
-    padding: 16px 40px;
-  }
-  .button10
-  {background-color: #1ae47b;
-  padding: 16px 40px;}
-  .buttonGP
-  {background-color: #1ae47b;
-  padding: 16px 40px;
-  color: #0f2bf8;}
-  .buttonP
-  {background-color: #6a1ae4;
-  padding: 16px 40px;}
-  .buttonB
-  {background-color: #2557cc;
-  padding: 16px 40px;}
-  .buttonY
-  {background-color: #f8e00f;
-  padding: 16px 40px;
-  color: #f70ff8;}
+ .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.STOP {background-color: #1AFFB0;} 
+.CP {background-color: #008CBA;}
+.FWD {background-color: #2CEFF0;} 
+.BWD {background-color: #FFE121;}
+.L {background-color: #CF11FF;}
+.R {background-color: #FE2020;}
   
 
    </style>
 </head>
 <body>
-  <h1>Wi-Fi Super RC Tank</h1>
-  <p>  <a href="/shoot"><button class="button buttonGP">SHOOT</button></a>
-       <a href="/kill"><button class="button button3">INSTANT KILL</button></a>
-  </p>
-  
-  <p>  <a href="/stop"><button class="button button10">STOP</button></a>
+  <h1>RC Tank</h1>
+  <p>
+  <a href="/stop"><button class="button STOP">STOP</button></a>
   </p>
   <p>
-    <a href="/forward"><button class="button">FORWARD</button></a></P>
- <p>   <a href="/backward"><button class="button button2">BACKWARD</button></a></p>
-  <p>  <a href="/right"><button class="button buttonP">RIGHT</button></a>
-      <a href="/left"><button class="button buttonB">LEFT</button></a></P>
-      <P>
-  <form action="/get">
-    angle:<input type="text" name="Angle">
-  </form>
-  </p>
+  <a href="/forward"><button class="button FWD">FORWARD</button></a>
+  </P>
+  <p>  
+  <a href="/left"><button class="button L">LEFT</button></a>
+  <a href="/right"><button class="button R">RIGHT</button></a>
+  </P>
+  <p><a href="/backward"><button class="button BWD">BACKWARD</button></a></p>
 </body>
 </html>)rawliteral";
 void Foward()
@@ -129,23 +108,6 @@ void Right()
   digitalWrite(15,HIGH);
   digitalWrite(14,LOW);
   //server.send(200, "text/html", ); 
-}
-void Shoot()
-{
-  /*digitalWrite(13,);
-  digitalWrite(12,);
-  digitalWrite(15,);
-  digitalWrite(14,);
-  server.send(200, "text/html", Shoot()); */
-}
-void Kill()
-{
-  /*
-  digitalWrite(13,);
-  digitalWrite(12,);
-  digitalWrite(15,);
-  digitalWrite(14,);
-  server.send(200, "text/html", kill()); */
 }
 void Get()
 {
