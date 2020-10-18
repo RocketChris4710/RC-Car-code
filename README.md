@@ -30,7 +30,7 @@
 
 
 
-```java=
+```java
 //include
 const char* ssid = ...;
 const char* password = ...;
@@ -82,13 +82,13 @@ void loop() {
 
 
 ### header
-```c++
+```cpp
 #include <WiFi.h> 
 #include <WebServer.h>
 ```
 ### html
 >In HTML, the <form> tag is used to create an HTML form for user input
-```htmlembedded=
+```htmlembedded
 <form action="/get">
   input1: <input type="text" name="input1">
   <input type="submit" value="Submit">
@@ -110,7 +110,7 @@ EX:
 type="text"
 type="submit"
 
-```htmlembedded=
+```htmlembedded
 <form action="/get">
   input1: <input type="text" name="input1">
   <input type="submit" value="Submit">
@@ -120,7 +120,7 @@ type="submit"
 ## Code
 
 >connect to the local network in setup() 
-```java=
+```java
 Serial.begin(115200);
 WiFi.mode(WIFI_STA);
 WiFi.begin(ssid, password);
@@ -143,7 +143,7 @@ server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
 ```
 
 >Write HTML in Arduino:The Webpage
-```htmlmixed=
+```htmlmixed
 const char index_html[](variable name of HTML Webpage) PROGMEM = R"rawliteral(specialize for html)(
 <!DOCTYPE HTML><html>
 <head>
